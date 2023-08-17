@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:aa2_mobile/routes/profissionais.dart';
-import 'package:aa2_mobile/routes/agendamento.dart';
-import 'package:aa2_mobile/routes/consultas.dart';
 
 void main() {
   runApp(const MyApp());
