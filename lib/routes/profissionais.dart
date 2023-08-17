@@ -24,8 +24,12 @@ class _ProfissionaisState extends State<Profissionais> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        centerTitle: true,
+        title: Image.asset(
+          "images/Logotipo.png",
+          width: 140,
+        ),
       ),
       body: Center(
         child: Column(
