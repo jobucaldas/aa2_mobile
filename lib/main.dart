@@ -20,5 +20,6 @@ class MyApp extends StatelessWidget {
       ),
       home: const Profissionais(title: 'Página de profissionais'),
     );
+    
   }
 }
