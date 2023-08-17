@@ -31,11 +31,8 @@ class _ProfissionaisState extends State<Profissionais> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Profissionais',
-            ),
             Text(
-              'Profissional 1',
+              'Profissionais disponíveis: ',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:aa2_mobile/routes/consultas.dart';
 
 class Agendamento extends StatefulWidget {
   const Agendamento({super.key, required this.title});
@@ -10,12 +12,12 @@ class Agendamento extends StatefulWidget {
 }
 
 class _AgendamentoState extends State<Agendamento> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void _agendarConsulta() {
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+          builder: (context) => const Consultas(title: 'Consulta')),
+    );
   }
 
   @override
@@ -29,20 +31,17 @@ class _AgendamentoState extends State<Agendamento> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Número de agendamentos:',
-            ),
             Text(
-              '$_counter',
+              'Agendamentos:',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _agendarConsulta,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.arrow_forward),
       ),
     );
   }
