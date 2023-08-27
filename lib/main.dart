@@ -14,12 +14,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'AA2',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 69, 123, 157)),
-        useMaterial3: true,
+        colorScheme: const ColorScheme.light().copyWith(
+        primary: const Color.fromARGB(255, 69, 123, 157),
+        secondary: const Color(0xFF1D3557),
+        ),
       ),
-      home: const Profissionais(title: 'Página de profissionais'),
+      home: const Profissionais(
+        title: 'Página de profissionais'
+        ),
     );
-    
   }
 }

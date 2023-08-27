@@ -41,48 +41,87 @@ class _ProfissionaisState extends State<Profissionais> {
         ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Profissionais disponíveis: ',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            FutureBuilder<List<Profissional>>(
-              future: futureProfissionais,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  // For each profissional in list, draw card with data
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        child: ListTile(
-                          leading: Image.asset(
-                              'images/${snapshot.data![index].imageId}.png'),
-                          title: Text(snapshot.data![index].name),
-                          subtitle: Text(snapshot.data![index].specialty),
-                        ),
-                      );
-                    },
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      Text(
+        'Profissionais disponíveis: ',
+        style: Theme.of(context).textTheme.headlineMedium,
+      ),
+      Expanded(
+        child: FutureBuilder<List<Profissional>>(
+          future: futureProfissionais,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              // Use ListView.builder para criar os Cards diretamente
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    margin: EdgeInsets.all(16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),),
+                    child: ListTile(
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'images/${snapshot.data![index].imageId}.png',
+                            width: 200,
+                            height: 150,
+                          ),
+                          Text(
+                            snapshot.data![index].name,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            snapshot.data![index].specialty,
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          ElevatedButton(
+                            onPressed: _agendarProfissional,
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 10,
+                              ),
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.secondary,
+                              textStyle: const TextStyle(fontSize: 16),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                            child: const Text('Agendar'),
+                          )
+                        ],
+                      ),
+                    ),
                   );
-                } else if (snapshot.hasError) {
-                  return Text('${snapshot.error}');
-                }
-
-                // By default, show a loading spinner.
-                return const CircularProgressIndicator();
-              },
-            ),
-          ],
+                },
+              );
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+      
+            // Por padrão, mostre um spinner de carregamento.
+            return const Align( //usando o Align e SizedBox pois o spinner estava esticando verticalmente
+              alignment: Alignment.center,
+              child: SizedBox(
+                height: 40,
+                child: CircularProgressIndicator(),
+              ),
+            );
+          },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _agendarProfissional,
-        tooltip: 'Agendar',
-        child: const Icon(Icons.arrow_forward),
-      ),
+    ],
+  ),
+),
     );
   }
 }
