@@ -1,3 +1,4 @@
+import 'package:aa2_mobile/routes/nav_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:aa2_mobile/routes/profissionais.dart';
 
@@ -14,14 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'AA2',
       theme: ThemeData(
+        //canvasColor: Colors.transparent,
         colorScheme: const ColorScheme.light().copyWith(
         primary: const Color.fromARGB(255, 69, 123, 157),
         secondary: const Color(0xFF1D3557),
         ),
       ),
-      home: const Profissionais(
-        title: 'Página de profissionais'
-        ),
+      home: const NavPages(),
     );
   }
 }

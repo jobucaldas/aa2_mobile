@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:aa2_mobile/routes/agendamento.dart';
 import 'package:aa2_mobile/service/profissionais.dart';
 
 class Profissionais extends StatefulWidget {
-  const Profissionais({super.key, required this.title});
+  const Profissionais();
 
-  final String title;
+  //final String title;
 
   @override
   State<Profissionais> createState() => _ProfissionaisState();
@@ -15,13 +14,13 @@ class Profissionais extends StatefulWidget {
 class _ProfissionaisState extends State<Profissionais> {
   late Future<List<Profissional>> futureProfissionais;
 
-  void _agendarProfissional() {
+  /*void _agendarProfissional() {
     Navigator.push(
       context,
       CupertinoPageRoute(
           builder: (context) => const Agendamento(title: 'Agendamento')),
     );
-  }
+  }*/
 
   @override
   void initState() {
@@ -44,12 +43,12 @@ class _ProfissionaisState extends State<Profissionais> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-             Padding(
+            Padding(
               padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
                child: Text(
                 'Profissionais disponíveis',
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 28, 
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).colorScheme.secondary,
                 )

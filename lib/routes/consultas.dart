@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Consultas extends StatefulWidget {
-  const Consultas({super.key, required this.title});
+  const Consultas();
 
-  final String title;
+  //final String title;
 
   @override
   State<Consultas> createState() => _ConsultasState();
