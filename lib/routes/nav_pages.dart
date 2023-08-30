@@ -18,35 +18,37 @@ class _NavPagesState extends State<NavPages> {
     super.initState();
     pageController = PageController(initialPage: paginaAtual);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         controller: pageController,
         onPageChanged: setPaginaAtual,
-        children: const [
-          Profissionais(),
+        children: [
+          const Profissionais(),
           Consultas(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: paginaAtual,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.calendar_month), label: 'Consultas'),
-          ],
-          onTap: (pagina) {
-            pageController.animateToPage(
-              pagina, 
-              duration: const Duration(milliseconds: 400), 
-              curve: Curves.decelerate,
-              );
-          },
-        ),
+        currentIndex: paginaAtual,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_month), label: 'Consultas'),
+        ],
+        onTap: (pagina) {
+          pageController.animateToPage(
+            pagina,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.decelerate,
+          );
+        },
+      ),
     );
   }
 
-  setPaginaAtual(pagina){
+  setPaginaAtual(pagina) {
     setState(() {
       paginaAtual = pagina;
     });

@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class Profissional {
@@ -30,11 +29,6 @@ class NetworkManagement {
   Future<List<Profissional>> fetchProfissionais() async {
     final response = await http.get(Uri.parse(
         'https://my-json-server.typicode.com/lvizfernando/jsonserver/profissionais'));
-
-    // Log response
-    if (kDebugMode) {
-      print(response.body);
-    }
 
     return parseProfissionais(response.body);
   }
