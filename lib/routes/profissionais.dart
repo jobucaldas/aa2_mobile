@@ -32,14 +32,6 @@ class _ProfissionaisState extends State<Profissionais> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        centerTitle: true,
-        title: Image.asset(
-          "images/Logotipo.png",
-          width: 140,
-        ),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

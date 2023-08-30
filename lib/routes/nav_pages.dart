@@ -22,6 +22,14 @@ class _NavPagesState extends State<NavPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        centerTitle: true,
+        title: Image.asset(
+          "images/Logotipo.png",
+          width: 140,
+        ),
+      ),
       body: PageView(
         controller: pageController,
         onPageChanged: setPaginaAtual,
