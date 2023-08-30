@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 
 class SkeletonScreen extends StatelessWidget {
+  const SkeletonScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          for (int i = 0; i < 3; i++)
-           // Quantidade de Skeleton Cards
+          for (int i = 0; i < 3; i++) // Quantidade de Skeleton Cards
             Card(
               elevation: 8,
               margin: const EdgeInsets.all(16),
@@ -19,6 +20,7 @@ class SkeletonScreen extends StatelessWidget {
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    //imagem
                     SkeletonAnimation(
                       child: Container(
                         width: 200,
@@ -30,6 +32,7 @@ class SkeletonScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 8),
+                    //nome profissional
                     SkeletonAnimation(
                       child: Container(
                         width: 120,
@@ -40,6 +43,7 @@ class SkeletonScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 4),
+                    //especialidade profissional
                     SkeletonAnimation(
                       child: Container(
                         width: 150,
@@ -50,6 +54,7 @@ class SkeletonScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 8),
+                    //botao agendar
                     SkeletonAnimation(
                       child: Container(
                         width: 85,

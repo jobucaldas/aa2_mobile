@@ -23,22 +23,22 @@ class _NavPagesState extends State<NavPages> {
     return Scaffold(
       body: PageView(
         controller: pageController,
-        children: [
+        onPageChanged: setPaginaAtual,
+        children: const [
           Profissionais(),
           Consultas(),
         ],
-        onPageChanged: setPaginaAtual,
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: paginaAtual,
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.calendar_month), label: 'Consultas'),
           ],
           onTap: (pagina) {
             pageController.animateToPage(
               pagina, 
-              duration: Duration(milliseconds: 400), 
+              duration: const Duration(milliseconds: 400), 
               curve: Curves.decelerate,
               );
           },
