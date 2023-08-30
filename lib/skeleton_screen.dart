@@ -11,7 +11,10 @@ class SkeletonScreen extends StatelessWidget {
           for (int i = 0; i < 3; i++)
            // Quantidade de Skeleton Cards
             Card(
+              elevation: 8,
               margin: const EdgeInsets.all(16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),),
               child: ListTile(
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
