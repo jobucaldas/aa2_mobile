@@ -8,25 +8,8 @@ class SkeletonScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-            child: SkeletonAnimation(
-              child: Container(
-                width: 300,
-                height: 28,
-                decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                ),
-              ),
-            ),
-          ),
           for (int i = 0; i < 3; i++) // Quantidade de Skeleton Cards
             Card(
-              elevation: 8,
-              margin: const EdgeInsets.all(16),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
               child: ListTile(
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -37,13 +20,14 @@ class SkeletonScreen extends StatelessWidget {
                         height: 150,
                         decoration: BoxDecoration(
                           color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
                     SizedBox(height: 8),
                     SkeletonAnimation(
                       child: Container(
-                        width: 100,
+                        width: 120,
                         height: 18,
                         decoration: BoxDecoration(
                           color: Colors.grey[300],
@@ -63,10 +47,11 @@ class SkeletonScreen extends StatelessWidget {
                     SizedBox(height: 8),
                     SkeletonAnimation(
                       child: Container(
-                        width: 100,
-                        height: 40,
+                        width: 85,
+                        height: 35,
                         decoration: BoxDecoration(
                           color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(20),
                         ),
                       ),
                     ),
