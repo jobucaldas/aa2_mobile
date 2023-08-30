@@ -8,8 +8,10 @@ class SkeletonScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          for (int i = 0; i < 3; i++) // Quantidade de Skeleton Cards
+          for (int i = 0; i < 3; i++)
+           // Quantidade de Skeleton Cards
             Card(
+              margin: const EdgeInsets.all(16),
               child: ListTile(
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
