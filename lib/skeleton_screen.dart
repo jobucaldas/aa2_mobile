@@ -31,7 +31,7 @@ class SkeletonScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     //nome profissional
                     SkeletonAnimation(
                       child: Container(
@@ -42,7 +42,7 @@ class SkeletonScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     //especialidade profissional
                     SkeletonAnimation(
                       child: Container(
@@ -53,7 +53,7 @@ class SkeletonScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     //botao agendar
                     SkeletonAnimation(
                       child: Container(

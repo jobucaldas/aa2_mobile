@@ -58,7 +58,7 @@ class _ProfissionaisState extends State<Profissionais> {
                 future: futureProfissionais,
                 builder: (context, snapshot) {
                    if (snapshot.hasData) {
-                    // Use ListView.builder para criar os Cards diretamente
+                    //criação dos cards
                     return ListView.builder(
                       shrinkWrap: true,
                       itemCount: snapshot.data!.length,
@@ -113,7 +113,7 @@ class _ProfissionaisState extends State<Profissionais> {
                   } else if (snapshot.hasError) {
                       return Text('${snapshot.error}');
                     }
-                  return SkeletonScreen();
+                  return const SkeletonScreen(); //por padrão retorna uma skeleton screen
                 },
               ),
             ),
