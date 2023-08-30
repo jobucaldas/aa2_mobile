@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:aa2_mobile/service/profissionais.dart';
+import 'package:aa2_mobile/skeleton_screen.dart';
 
 class Profissionais extends StatefulWidget {
-  const Profissionais();
-
-  //final String title;
-
+  const Profissionais({super.key});
+  
   @override
   State<Profissionais> createState() => _ProfissionaisState();
 }
@@ -58,7 +57,7 @@ class _ProfissionaisState extends State<Profissionais> {
               child: FutureBuilder<List<Profissional>>(
                 future: futureProfissionais,
                 builder: (context, snapshot) {
-                  if (snapshot.hasData) {
+                   if (snapshot.hasData) {
                     // Use ListView.builder para criar os Cards diretamente
                     return ListView.builder(
                       shrinkWrap: true,
@@ -114,15 +113,7 @@ class _ProfissionaisState extends State<Profissionais> {
                   } else if (snapshot.hasError) {
                       return Text('${snapshot.error}');
                     }
-      
-            // Por padrão, mostre um spinner de carregamento.
-                  return const Align( //usando o Align e SizedBox pois o spinner estava esticando verticalmente
-                    alignment: Alignment.center,
-                    child: SizedBox(
-                      height: 40,
-                      child: CircularProgressIndicator(),
-                    ),
-                  );
+                  return SkeletonScreen();
                 },
               ),
             ),
