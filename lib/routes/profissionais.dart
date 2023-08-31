@@ -1,3 +1,4 @@
+import 'package:aa2_mobile/routes/consultas.dart';
 import 'package:flutter/material.dart';
 import 'package:aa2_mobile/service/profissionais.dart';
 import 'package:aa2_mobile/persistence/database.dart';
@@ -15,13 +16,15 @@ class Profissionais extends StatefulWidget {
 class _ProfissionaisState extends State<Profissionais> {
   late Future<List<Profissional>> futureProfissionais;
 
-  /*void _agendarProfissional() {
-    Navigator.push(
-      context,
-      CupertinoPageRoute(
-          builder: (context) => const Agendamento(title: 'Agendamento')),
-    );
-  }*/
+  void _agendarConsulta() {
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(
+      content: Text('Consulta agendada', style: TextStyle(color: Colors.black, fontSize: 16),  ),
+      duration: Duration(seconds: 2),
+      backgroundColor: Colors.white,
+    ),
+  );
+}
 
   @override
   void initState() {
@@ -138,7 +141,10 @@ class _ProfissionaisState extends State<Profissionais> {
       specialty: especialidade,
       date: formattedDate,
       time: formattedTime,
+      
     ));
+
+    _agendarConsulta();
   }
 
   Future<DateTime?> pickDate() => showDatePicker(
