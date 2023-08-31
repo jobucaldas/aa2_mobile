@@ -1,6 +1,7 @@
 import 'package:aa2_mobile/routes/consultas.dart';
 import 'package:aa2_mobile/routes/profissionais.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NavPages extends StatefulWidget {
   const NavPages({super.key});
@@ -40,10 +41,10 @@ class _NavPagesState extends State<NavPages> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: paginaAtual,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        items:  [
+          BottomNavigationBarItem(icon: const Icon(Icons.home), label: AppLocalizations.of(context)!.home),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month), label: 'Consultas'),
+              icon: const Icon(Icons.calendar_month), label: AppLocalizations.of(context)!.consultas),
         ],
         onTap: (pagina) {
           pageController.animateToPage(

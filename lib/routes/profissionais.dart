@@ -5,6 +5,7 @@ import 'package:aa2_mobile/persistence/database.dart';
 import 'package:aa2_mobile/persistence/consulta.dart';
 import 'package:aa2_mobile/skeleton_screen.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Profissionais extends StatefulWidget {
   const Profissionais({super.key});
@@ -18,9 +19,9 @@ class _ProfissionaisState extends State<Profissionais> {
 
   void _agendarConsulta() {
   ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      content: Text('Consulta agendada', style: TextStyle(color: Colors.black, fontSize: 16),  ),
-      duration: Duration(seconds: 2),
+     SnackBar(
+      content: Text(AppLocalizations.of(context)!.consultas_snack, style: const TextStyle(color: Colors.black, fontSize: 16),  ),
+      duration: const Duration(seconds: 2),
       backgroundColor: Colors.white,
     ),
   );
@@ -41,7 +42,7 @@ class _ProfissionaisState extends State<Profissionais> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-              child: Text('Profissionais Disponíveis',
+              child: Text(AppLocalizations.of(context)!.profissionais_disp,
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -101,7 +102,7 @@ class _ProfissionaisState extends State<Profissionais> {
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                   ),
-                                  child: const Text('Agendar'),
+                                  child:  Text(AppLocalizations.of(context)!.agendar),
                                 )
                               ],
                             ),

@@ -1,0 +1,13 @@
+{
+    "profissionais_disp": "Professionals available",
+    "agendar": "Schedule",
+    "home": "Home",
+    "consultas": "Appointments",
+    "consultas_snack": "Appointment scheduled",
+    "consultas_null": "Your appointments will appear here",
+    "cancelar_consulta": "Cancel Appointment",
+    "cancelar_confirm": "Are you sure you want to cancel the appointment ?",
+    "cancell": "Cancel",
+    "confirm": "Confirm"
+
+}

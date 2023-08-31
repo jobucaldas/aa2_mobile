@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:aa2_mobile/persistence/database.dart';
 import 'package:aa2_mobile/persistence/consulta.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // ignore: must_be_immutable
 class Consultas extends StatefulWidget {
@@ -22,7 +24,7 @@ class _ConsultasState extends State<Consultas> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-              child: Text('Consultas',
+              child: Text(AppLocalizations.of(context)!.consultas,
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -82,15 +84,15 @@ class _ConsultasState extends State<Consultas> {
                                     context: context,
                                     builder: (BuildContext context) {
                                       return AlertDialog(
-                                        title: const Text('Cancelar consulta'),
-                                        content: const Text(
-                                            'Tem certeza que deseja cancelar a consulta?'),
+                                        title:  Text(AppLocalizations.of(context)!.cancelar_consulta),
+                                        content:  Text(
+                                            AppLocalizations.of(context)!.cancelar_confirm),
                                         actions: [
                                           TextButton(
                                             onPressed: () {
                                               Navigator.of(context).pop();
                                             },
-                                            child: const Text('Não'),
+                                            child:  Text(AppLocalizations.of(context)!.cancell),
                                           ),
                                           TextButton(
                                             onPressed: () {
@@ -102,7 +104,7 @@ class _ConsultasState extends State<Consultas> {
                                               });
                                               Navigator.of(context).pop();
                                             },
-                                            child: const Text('Sim'),
+                                            child:  Text(AppLocalizations.of(context)!.confirm),
                                           ),
                                         ],
                                       );
@@ -117,13 +119,13 @@ class _ConsultasState extends State<Consultas> {
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                 ),
-                                child: const Row(
+                                child:  Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(Icons.free_cancellation),
-                                    SizedBox(width: 5),
-                                    Text('Cancelar',
-                                        style: TextStyle(fontSize: 12)),
+                                    const Icon(Icons.free_cancellation),
+                                    const SizedBox(width: 5),
+                                    Text(AppLocalizations.of(context)!.cancell,
+                                        style: const TextStyle(fontSize: 12)),
                                   ],
                                 ),
                               ),
@@ -135,10 +137,10 @@ class _ConsultasState extends State<Consultas> {
                   } else if (snapshot.hasError) {
                     return Text('${snapshot.error}');
                   } else {
-                    return const Center(
+                    return  Center(
                       child: Text(
-                        "Suas consultas aparecerão aqui",
-                        style: TextStyle(fontSize: 20),
+                        AppLocalizations.of(context)!.consultas_null,
+                        style: const TextStyle(fontSize: 20),
                       ),
                     );
                   }
