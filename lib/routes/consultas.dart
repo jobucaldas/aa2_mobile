@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aa2_mobile/persistence/database.dart';
 import 'package:aa2_mobile/persistence/consulta.dart';
-import 'package:aa2_mobile/skeleton_screen.dart';
 
 // ignore: must_be_immutable
 class Consultas extends StatefulWidget {
@@ -35,33 +34,72 @@ class _ConsultasState extends State<Consultas> {
               child: FutureBuilder<List<Consulta>>(
                 future: widget.consultas,
                 builder: (context, snapshot) {
-                  if (snapshot.hasData) {
+                  if (snapshot.hasData && snapshot.data!.isNotEmpty) {
                     return ListView.builder(
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) {
                         return Card(
+                          elevation: 8,
+                          margin: const EdgeInsets.only(right: 16, left: 16, bottom: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                           child: ListTile(
-                            title: Text(snapshot.data![index].specialty,
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  color:
-                                      Theme.of(context).colorScheme.secondary,
-                                )),
-                            subtitle: Text(
-                                'Profissional: ${snapshot.data![index].profissional} \n'
-                                'Data: ${snapshot.data![index].date} \n'
-                                'Horário: ${snapshot.data![index].time}'),
-                            trailing: IconButton(
-                              icon: const Icon(Icons.delete),
-                              onPressed: () {
-                                DBProvider.db
-                                    .deleteConsulta(snapshot.data![index]);
-                                setState(() {
-                                  widget.consultas =
-                                      DBProvider.db.getAllConsultas();
-                                });
-                              },
+                            title: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('${snapshot.data![index].date},  ${snapshot.data![index].time}',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                    color: Theme.of(context).colorScheme.secondary,
+                                  ),
+                                ),
+                                Text(
+                                  snapshot.data![index].profissional,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(snapshot.data![index].specialty,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
+                                  )
+                                ),
+                                const SizedBox(height: 8),
+                              ]
                             ),
+                            subtitle:Center(
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  DBProvider.db
+                                  .deleteConsulta(snapshot.data![index]);
+                                  setState(() {
+                                    widget.consultas =
+                                    DBProvider.db.getAllConsultas();
+                                  });
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  fixedSize: const Size(120, 45),
+                                   backgroundColor:
+                                    Theme.of(context).colorScheme.secondary,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.free_cancellation),
+                                        SizedBox(width: 5),
+                                        Text('Cancelar', style: TextStyle(fontSize: 12)),
+                                     ],
+                                   ),
+                                  ),
+                                ),
                           ),
                         );
                       },
@@ -69,7 +107,13 @@ class _ConsultasState extends State<Consultas> {
                   } else if (snapshot.hasError) {
                     return Text('${snapshot.error}');
                   }
-                  return const SkeletonScreen();
+                  else{
+                    return const Center(
+                      child: Text("Suas consultas aparecerão aqui",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    );
+                  }
                 },
               ),
             ),
